@@ -191,10 +191,132 @@ public class Server extends UnicastRemoteObject implements AddEmployee {
         } else {
             return computedGrossIncome;
         }
+    } 
+        public double computePhilHealth(double grossIncome, String operation) throws RemoteException{
+        double computedPhilHealth = grossIncome/2;
+        double philHealth = 0;
         
+        if(computedPhilHealth <= 7999.99){
+            computedPhilHealth -= 87.50;
+            philHealth = 87.50;
+        } else if (computedPhilHealth <= 8999.99){
+            computedPhilHealth -= 100;
+            philHealth = 100;
+        } else if (computedPhilHealth <= 9999.99){
+            computedPhilHealth -= 112.50;
+            philHealth = 112.50;
+        } else if (computedPhilHealth <= 10999.99){
+            computedPhilHealth -= 125;
+            philHealth = 125;
+        } else if (computedPhilHealth <= 11999.99){
+            computedPhilHealth -= 137.50;
+            philHealth = 137.30;
+        } else if (computedPhilHealth <= 12999.99){
+            computedPhilHealth -= 150;
+            philHealth = 150;
+        } else if (computedPhilHealth <= 13999.99){
+            computedPhilHealth -= 162.50;
+            philHealth = 162.50;
+        } else if (computedPhilHealth <= 14999.99){
+            computedPhilHealth -= 175;
+            philHealth = 175;
+        } else if (computedPhilHealth <= 15999.99){
+            computedPhilHealth -= 187.50;
+            philHealth = 187.50;
+        } else if (computedPhilHealth <= 16999.99){
+            computedPhilHealth -= 200;
+            philHealth = 200;
+        } else if (computedPhilHealth <= 17999.99){
+            computedPhilHealth -= 212.50;
+            philHealth = 212.50;
+        } else if (computedPhilHealth <= 18999.99){
+            computedPhilHealth -= 225;
+            philHealth = 225;
+        } else if (computedPhilHealth <= 19999.99){
+            computedPhilHealth -= 237.50;
+            philHealth = 237.50;
+        } else if (computedPhilHealth <= 20999.99){
+            computedPhilHealth -= 250;
+            philHealth = 250;
+        } else if (computedPhilHealth <= 21999.99){
+            computedPhilHealth -= 262.50;
+            philHealth = 262.50;
+        } else if (computedPhilHealth <= 22999.99){
+            computedPhilHealth -= 275;
+            philHealth = 275;
+        } else if (computedPhilHealth <= 23999.99){
+            computedPhilHealth -= 287.50;
+            philHealth = 287.50;
+        } else if (computedPhilHealth <= 24999.99){
+            computedPhilHealth -= 300;
+            philHealth = 300;
+        } else if (computedPhilHealth <= 25999.99){
+            computedPhilHealth -= 312.50;
+            philHealth = 312.50;
+        } else if (computedPhilHealth <= 26999.99){
+            computedPhilHealth -= 325;
+            philHealth = 325;
+        } else if (computedPhilHealth <= 27999.99){
+            computedPhilHealth -= 337.50;
+            philHealth = 337.50;
+        } else if (computedPhilHealth <= 28999.99){
+            computedPhilHealth -= 350;
+            philHealth = 350;
+        } else if (computedPhilHealth <= 29999.99){
+            computedPhilHealth -= 362.50;
+            philHealth = 362.50;
+        } else if (computedPhilHealth <= 30999.99){
+            computedPhilHealth -= 375;
+            philHealth = 375;
+        } else if (computedPhilHealth <= 31999.99){
+            computedPhilHealth -= 387.50;
+            philHealth = 387.50;
+        } else if (computedPhilHealth <= 32999.99){
+            computedPhilHealth -= 400;
+            philHealth = 400;
+        } else if (computedPhilHealth <= 33999.99){
+            computedPhilHealth -= 412.50;
+            philHealth = 412.50;
+        } else if (computedPhilHealth <= 34999.99){
+            computedPhilHealth -= 425;
+            philHealth = 425;
+        } else if (computedPhilHealth > 35999.99){
+            computedPhilHealth -= 437.50;
+            philHealth = 437.50;
+        } 
         
+        if(operation.equals("get")){
+        return computedPhilHealth;
+        }else{
+            return philHealth;
+        }
+
     }
 
+    public double computePagibig(double grossIncome, String operation)throws RemoteException{
+        double computedGrossIncome = grossIncome/2;
+        double pagibigDeduction = 0;
+        
+        // if computedgrossIncome is 1500 below, multiply 0.01 to 
+        // computedgrossIncome and deduct that to computedgrossIncome
+        // NOTE: ceiling is 100
+        
+        pagibigDeduction = computedGrossIncome*0.01;
+        
+        
+        // if computedgrossIncome is over 1500, multiply 0.02 to 
+        // computedgrossIncome and deduct that to computedgrossIncome
+        // NOTE: ceiling is 100
+        
+        
+        
+        if(operation.equals("get")){
+            return pagibigDeduction;
+        }else{
+            return computedGrossIncome;
+        }
+    }
+    
     public static void main(String[] args) {
         System.setProperty("java.security.policy", "file:./server.policy");
         if (System.getSecurityManager() == null) {
