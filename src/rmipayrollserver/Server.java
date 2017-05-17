@@ -129,9 +129,34 @@ public class Server extends UnicastRemoteObject implements AddEmployee {
 //        }else if(){
 //        }
         
-        return 20.00;
-    }
+//        return 20.00;
+//    }
+    
 
+    public double computePagibig(double grossIncome, String operation)throws RemoteException{
+        double computedGrossIncome = grossIncome/2;
+        double pagibigDeduction = 0;
+        
+        // if computedgrossIncome is 1500 below, multiply 0.01 to 
+        // computedgrossIncome and deduct that to computedgrossIncome
+        // NOTE: ceiling is 100
+        
+        pagibigDeduction = computedGrossIncome*0.01;
+        
+        
+        // if computedgrossIncome is over 1500, multiply 0.02 to 
+        // computedgrossIncome and deduct that to computedgrossIncome
+        // NOTE: ceiling is 100
+        
+        
+        
+        if(operation.equals('get')){
+            return pagibigDeduction;
+        }else{
+            return computedgrossIncome;
+        }
+    }
+    
     public static void main(String[] args) {
         System.setProperty("java.security.policy", "file:./server.policy");
         if (System.getSecurityManager() == null) {
